@@ -57,9 +57,12 @@ class KeyboardAndMouseWatcher(BaseWatcher):
                 self._mouse_last_x,self._mouse_last_y = event.root_x,event.root_y
     
             if event.type == X.ButtonPress:
-                self.send_event(('buttons_pressed',1))
-
-            if event.type == X.KeyPress and event.sequence_number == 0:
+                print event.sequence_number,event._data,event._fields
+                self.send_event(('button_down',event._data['detail']))
+            elif event.type == X.ButtonRelease:
+                print event.sequence_number,event._data,event._fields
+                self.send_event(('button_up',event._data['detail']))
+            elif event.type == X.KeyPress and event.sequence_number == 0:
                 key = event.detail
                 self.send_event(('keys_pressed',key,1))
 

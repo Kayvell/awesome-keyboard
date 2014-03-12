@@ -30,6 +30,9 @@ if __name__ == '__main__':
 
     sounds = {}
 
+    mouse_down = pygame.mixer.Sound(os.path.join(path,'sounds','mouse','buttondown_1.ogg'))
+    mouse_up = pygame.mixer.Sound(os.path.join(path,'sounds','mouse','buttonup_1.ogg'))
+
     for sound_name,filenames in sound_files.items():
         sounds[sound_name] = []
         for filename in filenames:
@@ -57,6 +60,11 @@ if __name__ == '__main__':
                         i = random.randrange(0,len(sounds['clicks']))
                         sounds['clicks'][i].play()
                     print value[1]
+                elif value[0] == 'button_up':
+                    mouse_up.play()
+                elif value[0] == 'button_down':
+                    mouse_down.play()
+
     except KeyboardInterrupt:
         print "Exiting..."
         watcher.terminate()
