@@ -22,11 +22,11 @@ Installation and usage on Windows is pretty easy. First of all, you will need to
     git clone git@github.com:adewes/awesome-keyboard.git
     cd awesome-keyboard
 
-The above commands will get a copy of Awesome Keyboard. Then, some dependencies that Awesome Keyboard uses will need to be installed. Awesome Keyboard uses pygame (for loading audio) and pyHook (for hooking into keyboard and mouse events). The following command will get it for you:
+The above commands will get a copy of Awesome Keyboard. Then a dependency that Awesome Keyboard uses will need to be installed. Awesome Keyboard uses pyHook to hooking into keyboard and mouse events. The following command will get it for you:
 
     pip install -R requirementswin32.txt
 
-After that, Awesome Keyboard is ready to be used! Just run the following to run it:
+After that, Awesome Keyboard is ready to be used! Just run the following command to start it:
 
     python awesome.py
 
