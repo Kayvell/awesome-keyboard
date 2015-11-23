@@ -106,7 +106,8 @@ class KeyboardAndMouseWatcher(BaseWatcher):
             return True
 
         hm = pyHook.HookManager()
-        hm.MouseMove = MouseMove
+        # For performance purposes, this will remain commented out.
+        # hm.MouseMove = MouseMove
         hm.MouseLeftDown = ButtonDown
         hm.MouseLeftUp = ButtonUp
         hm.HookMouse()
