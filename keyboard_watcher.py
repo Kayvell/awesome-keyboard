@@ -1,6 +1,6 @@
 from sys import platform as _platform
 
-if _platform == "linux" or _platform == "linux2":
+if _platform.startswith("linux"):
     try:
         from Xlib.display import Display
         from Xlib import X
@@ -43,7 +43,7 @@ class KeyboardAndMouseWatcher(BaseWatcher):
         self._queue = queue
         self._mouse_last_x = None
         self._mouse_last_y = None
-        if _platform == "linux" or _platform == "linux2":
+        if _platform.startswith("linux"):
             self._display = Display()
 
     def add_to_datapoint(self,x,y):
@@ -118,7 +118,7 @@ class KeyboardAndMouseWatcher(BaseWatcher):
 
     def run(self):
         self.disable_keyboard_interrupt()
-        if _platform == "linux" or _platform == "linux2":
+        if _platform.startswith("linux"):
             root = self._display.screen().root
             ctx = self._display.record_create_context(
                         0,
